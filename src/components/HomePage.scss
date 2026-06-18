@@ -1,0 +1,188 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.home-page {
+  background-color: $background;
+  min-height: 100vh;
+
+  // Header
+  &__header {
+    background-color: $background-inverse;
+    border-bottom: 1px solid $border-subtle-02;
+    width: 100%;
+  }
+
+  &__header-content {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    gap: $spacing-03;
+    max-width: 100%;
+  }
+
+  &__menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    color: $text-inverse;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      background-color: $background-hover;
+    }
+  }
+
+  &__header-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-02;
+    padding-left: $spacing-03;
+  }
+
+  &__header-title-ibm {
+    @include type-style('body-short-01');
+    color: $text-inverse;
+  }
+
+  &__header-title-product {
+    @include type-style('body-short-01');
+    font-weight: 600;
+    color: $text-inverse;
+  }
+
+  // Hero Section
+  &__hero {
+    background-color: $layer;
+    border-bottom: 1px solid $border-subtle-01;
+    padding: $spacing-06 0;
+  }
+
+  &__hero-title {
+    @include type-style('heading-04');
+    color: $text-primary;
+    margin: 0 0 $spacing-05 0;
+  }
+
+  &__hero-description {
+    @include type-style('body-long-01');
+    color: $text-primary;
+    margin: 0;
+    max-width: 640px;
+  }
+
+  // Section Wrapper
+  &__section-wrapper {
+    padding: $spacing-05;
+  }
+
+  &__section {
+    background-color: $layer;
+    padding: $spacing-05;
+    display: flex;
+    gap: $spacing-06;
+    position: relative;
+  }
+
+  // Sidebar
+  &__sidebar {
+    flex: 0 0 380px;
+    min-width: 380px;
+  }
+
+  &__sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-06;
+  }
+
+  &__section-title {
+    @include type-style('heading-03');
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__section-description {
+    @include type-style('body-long-01');
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__feature-list {
+    @include type-style('body-short-01');
+    color: $text-primary;
+    margin: 0;
+    padding-left: $spacing-06;
+    list-style-position: outside;
+
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  &__view-all-button {
+    align-self: flex-start;
+  }
+
+  // Divider
+  &__divider {
+    flex: 0 0 1px;
+    background-color: $border-subtle-01;
+    align-self: stretch;
+  }
+
+  // Content Area
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-04;
+    min-width: 0; // Allow flex item to shrink
+  }
+
+  &__content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content-title {
+    @include type-style('heading-compact-01');
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__show-more {
+    display: flex;
+    align-items: center;
+    gap: $spacing-03;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-02 $spacing-04;
+    color: $text-secondary;
+    @include type-style('body-short-01');
+
+    &:hover {
+      background-color: $layer-hover;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  // Cards Wrapper
+  &__cards-wrapper {
+    .cds--grid {
+      row-gap: $spacing-03;
+    }
+  }
+}
+
+// Made with Bob

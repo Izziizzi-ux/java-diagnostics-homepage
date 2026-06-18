@@ -1,0 +1,81 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.capability-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-02;
+    padding: $spacing-05 $spacing-05 $spacing-02 $spacing-05;
+  }
+
+  &__badge {
+    @include type-style('helper-text-01');
+    display: inline-flex;
+    align-items: center;
+    padding: 0 $spacing-03;
+    padding-bottom: $spacing-01;
+    border-radius: 9px;
+    width: fit-content;
+
+    &--java {
+      background-color: #d0e2ff;
+      color: #0043ce;
+    }
+
+    &--runtime {
+      background-color: #d9fbfb;
+      color: #005d5d;
+    }
+  }
+
+  &__title {
+    @include type-style('label-02');
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-05;
+    padding: $spacing-02 $spacing-05 $spacing-05 $spacing-05;
+    flex: 1;
+  }
+
+  &__description {
+    @include type-style('helper-text-01');
+    color: $text-primary;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__timestamp {
+    @include type-style('helper-text-01');
+    color: $text-secondary;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: $icon-primary;
+  }
+}
+
+// Made with Bob
