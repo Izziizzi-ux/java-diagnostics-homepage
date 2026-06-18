@@ -78,4 +78,10 @@
   }
 }
 
+// Override Carbon tile background
+.cds--tile.capability-card,
+.cds--tile--clickable.capability-card {
+  background-color: #ffffff !important;
+}
+
 // Made with Bob
