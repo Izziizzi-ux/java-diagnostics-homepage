@@ -1,0 +1,272 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.service-disruption {
+  min-height: 100vh;
+  background-color: $background;
+
+  // Header
+  &__header {
+    background-color: $layer-01;
+    border-bottom: 1px solid $border-subtle;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  &__header-content {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 $spacing-05;
+  }
+
+  &__menu-button {
+    background: none;
+    border: none;
+    color: $icon-primary;
+    cursor: pointer;
+    padding: $spacing-03;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: $spacing-03;
+
+    &:hover {
+      background-color: $layer-hover;
+    }
+  }
+
+  &__header-title {
+    display: flex;
+    align-items: baseline;
+    gap: $spacing-02;
+  }
+
+  &__header-title-ibm {
+    @include type-style('heading-compact-01');
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__header-title-product {
+    @include type-style('body-compact-01');
+    color: $text-secondary;
+  }
+
+  // Breadcrumb
+  &__breadcrumb {
+    padding: $spacing-05 0;
+  }
+
+  // Page Header
+  &__page-header {
+    padding: $spacing-06 0;
+  }
+
+  &__page-header-tags {
+    display: flex;
+    gap: $spacing-03;
+    margin-bottom: $spacing-05;
+  }
+
+  &__page-title {
+    @include type-style('heading-04');
+    color: $text-primary;
+    margin-bottom: $spacing-05;
+  }
+
+  &__action-button {
+    margin-bottom: $spacing-05;
+  }
+
+  // Metadata Tile
+  &__metadata-tile {
+    margin-bottom: $spacing-05;
+  }
+
+  &__metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-05;
+
+    @media (max-width: 672px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-02;
+  }
+
+  &__metadata-label {
+    @include type-style('label-01');
+    color: $text-secondary;
+  }
+
+  &__metadata-value {
+    @include type-style('body-compact-01');
+    color: $text-primary;
+  }
+
+  // Tabs Tile
+  &__tabs-tile {
+    margin-bottom: $spacing-05;
+  }
+
+  &__tab-content {
+    padding: $spacing-05 0;
+  }
+
+  // AI Notification
+  &__ai-notification {
+    margin-bottom: $spacing-06;
+  }
+
+  // Section
+  &__section {
+    margin-bottom: $spacing-07;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    @include type-style('heading-03');
+    color: $text-primary;
+    margin-bottom: $spacing-05;
+  }
+
+  &__section-text {
+    @include type-style('body-compact-01');
+    color: $text-primary;
+    margin-bottom: $spacing-05;
+    line-height: 1.5;
+  }
+
+  // AI Content
+  &__ai-content {
+    background-color: $layer-01;
+    border: 1px solid $border-subtle;
+    border-radius: 4px;
+    padding: $spacing-05;
+    margin-bottom: $spacing-05;
+  }
+
+  &__ai-label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-02;
+    @include type-style('label-01');
+    color: $text-secondary;
+    margin-bottom: $spacing-03;
+
+    svg {
+      fill: $icon-secondary;
+    }
+  }
+
+  // Subsection
+  &__subsection {
+    margin-bottom: $spacing-06;
+  }
+
+  &__subsection-title {
+    @include type-style('heading-compact-02');
+    color: $text-primary;
+    margin-bottom: $spacing-04;
+  }
+
+  &__subsection-text {
+    @include type-style('body-compact-01');
+    color: $text-primary;
+    margin-bottom: $spacing-05;
+    line-height: 1.5;
+  }
+
+  // Key Evidence
+  &__key-evidence {
+    background-color: $layer-01;
+    padding: $spacing-05;
+    border-radius: 4px;
+    margin-bottom: $spacing-05;
+  }
+
+  &__evidence-title {
+    @include type-style('heading-compact-01');
+    color: $text-primary;
+    margin-bottom: $spacing-04;
+  }
+
+  &__evidence-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      @include type-style('body-compact-01');
+      color: $text-primary;
+      margin-bottom: $spacing-03;
+      padding-left: $spacing-05;
+      position: relative;
+      line-height: 1.5;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: $text-secondary;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Ruled Out List
+  &__ruled-out-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      @include type-style('body-compact-01');
+      color: $text-primary;
+      margin-bottom: $spacing-04;
+      padding-left: $spacing-05;
+      position: relative;
+      line-height: 1.5;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: $text-secondary;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Raw Data
+  &__raw-data {
+    margin-top: $spacing-06;
+  }
+}
+
+// Made with Bob

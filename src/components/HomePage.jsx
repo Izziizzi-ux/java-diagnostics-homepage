@@ -69,7 +69,10 @@ const activeIssues = [
       { label: 'JVM', type: 'teal' },
       { label: 'App server', type: 'purple' }
     ],
-    showActionButton: true
+    showActionButton: true,
+    onClick: () => {
+      window.location.hash = '#service-disruption';
+    }
   },
   {
     id: 2,
