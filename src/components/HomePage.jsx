@@ -12,7 +12,9 @@ const environmentData = [
     servers: 16,
     apps: 33,
     status: '3 Issues',
-    statusType: 'warning'
+    statusType: 'warning',
+    activeIssues: 3,
+    optimizations: 3
   },
   {
     id: 'websphere',
@@ -20,7 +22,9 @@ const environmentData = [
     servers: 5,
     apps: 12,
     status: '2 Issues',
-    statusType: 'warning'
+    statusType: 'warning',
+    activeIssues: 2,
+    optimizations: 1
   },
   {
     id: 'liberty',
@@ -28,7 +32,9 @@ const environmentData = [
     servers: 8,
     apps: 15,
     status: '1 Issue',
-    statusType: 'warning'
+    statusType: 'warning',
+    activeIssues: 1,
+    optimizations: 2
   },
   {
     id: 'quarkus',
@@ -36,7 +42,19 @@ const environmentData = [
     servers: 3,
     apps: 6,
     status: 'Healthy',
-    statusType: 'healthy'
+    statusType: 'healthy',
+    activeIssues: 0,
+    optimizations: 0
+  },
+  {
+    id: 'jvm',
+    title: 'JVM',
+    servers: 16,
+    apps: 33,
+    status: '3 Issues',
+    statusType: 'warning',
+    activeIssues: 3,
+    optimizations: 3
   }
 ];
 

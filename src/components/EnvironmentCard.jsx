@@ -3,7 +3,7 @@ import { Tile } from '@carbon/react';
 import { WarningAlt, Checkmark } from '@carbon/icons-react';
 import './EnvironmentCard.scss';
 
-function EnvironmentCard({ title, servers, apps, status, statusType }) {
+function EnvironmentCard({ title, servers, apps, status, statusType, activeIssues, optimizations }) {
   const getStatusIcon = () => {
     if (statusType === 'healthy') {
       return <Checkmark size={16} className="environment-card__status-icon environment-card__status-icon--healthy" />;
@@ -24,6 +24,20 @@ function EnvironmentCard({ title, servers, apps, status, statusType }) {
             {status}
           </span>
         </div>
+        {(activeIssues > 0 || optimizations > 0) && (
+          <div className="environment-card__summary">
+            {activeIssues > 0 && (
+              <span className="environment-card__summary-item">
+                {activeIssues} Active
+              </span>
+            )}
+            {optimizations > 0 && (
+              <span className="environment-card__summary-item">
+                {optimizations} Optimisation{optimizations !== 1 ? 's' : ''}
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </Tile>
   );
