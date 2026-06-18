@@ -1,0 +1,174 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.traffic-anomaly-optimization {
+  background-color: $background;
+  min-height: 100vh;
+
+  // Header
+  &__header {
+    background-color: $background-inverse;
+    border-bottom: 1px solid $border-subtle-02;
+    width: 100%;
+  }
+
+  &__header-content {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    gap: $spacing-03;
+    max-width: 100%;
+  }
+
+  &__menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    color: $text-inverse;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      background-color: $background-hover;
+    }
+  }
+
+  &__header-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-02;
+    padding-left: $spacing-03;
+  }
+
+  &__header-title-ibm {
+    @include type-style('body-short-01');
+    color: $text-inverse;
+  }
+
+  &__header-title-product {
+    @include type-style('body-short-01');
+    font-weight: 600;
+    color: $text-inverse;
+  }
+
+  // Breadcrumb
+  &__breadcrumb {
+    padding: $spacing-05 0;
+    background-color: $layer;
+    border-bottom: 1px solid $border-subtle-01;
+  }
+
+  // Page Header
+  &__page-header {
+    background-color: $layer;
+    padding: $spacing-06 0;
+    border-bottom: 1px solid $border-subtle-01;
+  }
+
+  &__page-header-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-05;
+  }
+
+  &__page-header-tags {
+    display: flex;
+    gap: $spacing-03;
+    align-items: center;
+  }
+
+  &__page-title {
+    @include type-style('heading-04');
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__page-description {
+    @include type-style('body-long-01');
+    color: $text-primary;
+    margin: 0;
+    max-width: 640px;
+  }
+
+  // Section
+  &__section {
+    padding: $spacing-06 0;
+  }
+
+  &__tile-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-05;
+  }
+
+  &__section-title {
+    @include type-style('heading-compact-01');
+    color: $text-primary;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  &__section-description {
+    @include type-style('body-01');
+    color: $text-primary;
+    margin: 0;
+  }
+
+  // Content Switcher
+  &__content-switcher {
+    padding: $spacing-05 0;
+  }
+
+  // Chart
+  &__chart {
+    padding-bottom: $spacing-06;
+  }
+
+  // Tabs Section
+  &__tabs-section {
+    padding-bottom: $spacing-06;
+  }
+
+  &__tab-content {
+    padding: $spacing-06 $spacing-05;
+  }
+
+  &__tab-description {
+    @include type-style('body-01');
+    color: $text-primary;
+    margin: 0 0 $spacing-06 0;
+  }
+
+  &__implementation-title {
+    @include type-style('heading-03');
+    color: $text-primary;
+    margin: 0 0 $spacing-05 0;
+  }
+
+  &__implementation-list {
+    @include type-style('body-01');
+    color: $text-primary;
+    margin: 0;
+    padding-left: $spacing-07;
+    list-style-position: outside;
+
+    li {
+      margin-bottom: $spacing-05;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Made with Bob

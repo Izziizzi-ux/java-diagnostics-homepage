@@ -219,7 +219,14 @@ function HomePage() {
               <Grid narrow>
                 {recommendations.map((recommendation) => (
                   <Column key={recommendation.id} sm={4} md={4} lg={{span: 5, offset: 0}}>
-                    <CapabilityCard {...recommendation} />
+                    <CapabilityCard
+                      {...recommendation}
+                      onClick={() => {
+                        if (recommendation.id === 10) {
+                          window.location.hash = '#optimization';
+                        }
+                      }}
+                    />
                   </Column>
                 ))}
               </Grid>

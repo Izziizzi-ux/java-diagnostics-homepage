@@ -3,9 +3,9 @@ import { ClickableTile } from '@carbon/react';
 import { ArrowRight } from '@carbon/icons-react';
 import './CapabilityCard.scss';
 
-function CapabilityCard({ layer, layerType, title, description, timestamp }) {
+function CapabilityCard({ layer, layerType, title, description, timestamp, onClick }) {
   return (
-    <ClickableTile className="capability-card">
+    <ClickableTile className="capability-card" onClick={onClick}>
       <div className="capability-card__header">
         <span className={`capability-card__badge capability-card__badge--${layerType}`}>
           {layer}
