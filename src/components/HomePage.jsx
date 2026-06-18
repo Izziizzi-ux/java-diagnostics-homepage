@@ -7,16 +7,6 @@ import './HomePage.scss';
 
 const environmentData = [
   {
-    id: 'total',
-    title: 'Total',
-    servers: 16,
-    apps: 33,
-    status: '3 Issues',
-    statusType: 'warning',
-    activeIssues: 3,
-    optimizations: 3
-  },
-  {
     id: 'websphere',
     title: 'WebSphere',
     servers: 5,
