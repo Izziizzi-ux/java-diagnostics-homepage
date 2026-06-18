@@ -1,0 +1,61 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.environment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 86px;
+  padding: $spacing-05;
+
+  &__title {
+    @include type-style('heading-compact-01');
+    color: $text-primary;
+    margin: 0 0 $spacing-05 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-02;
+  }
+
+  &__stats {
+    @include type-style('label-01');
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: $spacing-02;
+  }
+
+  &__status-icon {
+    flex-shrink: 0;
+
+    &--warning {
+      fill: $support-error;
+    }
+
+    &--healthy {
+      fill: $support-success;
+    }
+  }
+
+  &__status-text {
+    @include type-style('label-01');
+
+    &--warning {
+      color: $text-secondary;
+    }
+
+    &--healthy {
+      color: $text-secondary;
+    }
+  }
+}
+
+// Made with Bob

@@ -76,6 +76,24 @@
     max-width: 640px;
   }
 
+  // Environment Overview Section
+  &__environment-section {
+    padding: $spacing-05;
+    background-color: $background;
+  }
+
+  &__environment-title {
+    @include type-style('label-01');
+    color: $text-secondary;
+    margin: 0 0 $spacing-05 0;
+    text-transform: uppercase;
+    letter-spacing: 0.32px;
+  }
+
+  &__environment-grid {
+    row-gap: $spacing-05;
+  }
+
   // Section Wrapper
   &__section-wrapper {
     padding: $spacing-05;
@@ -158,23 +176,7 @@
   }
 
   &__show-more {
-    display: flex;
-    align-items: center;
-    gap: $spacing-03;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: $spacing-02 $spacing-04;
-    color: $text-secondary;
-    @include type-style('body-short-01');
-
-    &:hover {
-      background-color: $layer-hover;
-    }
-
-    svg {
-      fill: currentColor;
-    }
+    // Carbon Button component handles its own styling
   }
 
   // Cards Wrapper

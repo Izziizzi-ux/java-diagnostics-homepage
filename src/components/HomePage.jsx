@@ -1,108 +1,112 @@
 import React from 'react';
-import { Grid, Column, Layer, Button } from '@carbon/react';
+import { Grid, Column, Button } from '@carbon/react';
 import { Menu, ArrowRight, ChevronDown } from '@carbon/icons-react';
 import CapabilityCard from './CapabilityCard';
+import EnvironmentCard from './EnvironmentCard';
 import './HomePage.scss';
+
+const environmentData = [
+  {
+    id: 'total',
+    title: 'Total',
+    servers: 16,
+    apps: 33,
+    status: '3 Issues',
+    statusType: 'warning'
+  },
+  {
+    id: 'websphere',
+    title: 'WebSphere',
+    servers: 5,
+    apps: 12,
+    status: '2 Issues',
+    statusType: 'warning'
+  },
+  {
+    id: 'liberty',
+    title: 'Liberty',
+    servers: 8,
+    apps: 15,
+    status: '1 Issue',
+    statusType: 'warning'
+  },
+  {
+    id: 'quarkus',
+    title: 'Quarkus',
+    servers: 3,
+    apps: 6,
+    status: 'Healthy',
+    statusType: 'healthy'
+  }
+];
 
 const activeIssues = [
   {
     id: 1,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Connection Pool Exhaustion',
-    description: 'Detects exhausted database or service connection pools resulting in request failures and timeouts.',
-    timestamp: 'Since 3hr ago'
+    title: 'Service disruption',
+    description: 'Response Time Degradation causing service disruption.',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'High priority', type: 'red' },
+      { label: 'JVM', type: 'teal' },
+      { label: 'App server', type: 'purple' }
+    ],
+    showActionButton: true
   },
   {
     id: 2,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'CPU Utilisation Spikes',
-    description: 'Identifies CPU usage exceeding capacity limits and determines whether spikes are expected or abnormal.',
-    timestamp: 'Since 3hr ago'
+    title: 'Memory leak',
+    description: 'Memory leak from retained objects',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'High priority', type: 'red' },
+      { label: 'JVM', type: 'teal' }
+    ],
+    showActionButton: true
   },
   {
     id: 3,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Hanging Threads',
-    description: 'Detects blocked or stalled threads that prevent requests from completing.',
-    timestamp: 'Since 3hr ago'
-  },
-  {
-    id: 4,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'Traffic Anomaly Detection',
-    description: 'Identifies sudden spikes or drops in request volume that may indicate incidents or attacks.',
-    timestamp: 'Since 3hr ago'
-  },
-  {
-    id: 5,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Classloader Conflicts',
-    description: 'Detects classloading errors that cause application crashes or unpredictable behaviour.',
-    timestamp: 'Since 3hr ago'
-  },
-  {
-    id: 6,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'Error Rate Analysis (4xx / 5xx)',
-    description: 'Detects abnormal increases in client or server errors indicating application or infrastructure failures.',
-    timestamp: 'Since 3hr ago'
+    title: 'Hung threads with memory impact',
+    description: 'Threads blocked causing memory buildup. High priority',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'High priority', type: 'red' },
+      { label: 'JVM', type: 'teal' }
+    ],
+    showActionButton: true
   }
 ];
 
 const recommendations = [
   {
     id: 7,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Out of Memory (OOM) Risk Patterns',
-    description: 'Identifies memory growth trends and early signs of leaks before failure.',
-    timestamp: 'Since 3 h ago'
+    title: 'Optimisation',
+    description: '3 optimisation alerts ready to explore.',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'High priority', type: 'red' }
+    ],
+    showActionButton: false
   },
   {
     id: 8,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'CPU Utilisation Trends',
-    description: 'Analyses sustained high CPU usage and capacity risks.',
-    timestamp: 'Since 3 h ago'
+    title: 'Optimisation',
+    description: '3 optimisation alerts ready to explore.',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'Medium priority', type: 'gray' }
+    ],
+    showActionButton: false
   },
   {
     id: 9,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Garbage Collection Efficiency Issues',
-    description: 'Analyses GC behaviour over time to recommend tuning and configuration improvements.',
-    timestamp: 'Since 3 h ago'
-  },
-  {
-    id: 10,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'Traffic Anomaly Detection (Baseline Deviation)',
-    description: 'Uses historical traffic patterns to flag unusual behaviour early.',
-    timestamp: 'Since 3 h ago'
-  },
-  {
-    id: 11,
-    layer: 'Java layer',
-    layerType: 'java',
-    title: 'Connection Pool Saturation Trends',
-    description: 'Identifies near-exhaustion patterns and misconfigured pool sizes.',
-    timestamp: 'Since 3 h ago'
-  },
-  {
-    id: 12,
-    layer: 'Application runtimes layer',
-    layerType: 'runtime',
-    title: 'Error Rate Trends',
-    description: 'Detects gradual increases in errors that signal emerging problems.',
-    timestamp: 'Since 3 h ago'
+    title: 'Optimisation',
+    description: '3 optimisation alerts ready to explore.',
+    timestamp: 'Since 3 h ago',
+    tags: [
+      { label: 'Medium priority', type: 'gray' }
+    ],
+    showActionButton: false
   }
 ];
 
@@ -134,6 +138,22 @@ function HomePage() {
         </Grid>
       </div>
 
+      {/* Environment Overview Section */}
+      <div className="home-page__environment-section">
+        <Grid>
+          <Column sm={4} md={8} lg={16}>
+            <h2 className="home-page__environment-title">Environment Overview</h2>
+          </Column>
+        </Grid>
+        <Grid className="home-page__environment-grid">
+          {environmentData.map((env) => (
+            <Column key={env.id} sm={4} md={4} lg={4}>
+              <EnvironmentCard {...env} />
+            </Column>
+          ))}
+        </Grid>
+      </div>
+
       {/* Active Issues Section */}
       <div className="home-page__section-wrapper">
         <div className="home-page__section">
@@ -149,7 +169,8 @@ function HomePage() {
                 <li>Automate fixes with one-click deployment</li>
               </ul>
               <Button
-                kind="ghost"
+                kind="tertiary"
+                size="sm"
                 renderIcon={ArrowRight}
                 className="home-page__view-all-button"
               >
@@ -162,16 +183,20 @@ function HomePage() {
 
           <div className="home-page__content">
             <div className="home-page__content-header">
-              <h3 className="home-page__content-title">Active issues (12)</h3>
-              <button className="home-page__show-more">
-                <span>Show more</span>
-                <ChevronDown size={16} />
-              </button>
+              <h3 className="home-page__content-title">Active issues (3)</h3>
+              <Button
+                kind="ghost"
+                size="sm"
+                renderIcon={ChevronDown}
+                className="home-page__show-more"
+              >
+                Show more
+              </Button>
             </div>
             <div className="home-page__cards-wrapper">
               <Grid narrow>
                 {activeIssues.map((issue) => (
-                  <Column key={issue.id} sm={4} md={4} lg={{span: 5, offset: 0}}>
+                  <Column key={issue.id} sm={4} md={4} lg={5}>
                     <CapabilityCard {...issue} />
                   </Column>
                 ))}
@@ -196,7 +221,8 @@ function HomePage() {
                 <li>Strengthen system reliability proactively</li>
               </ul>
               <Button
-                kind="ghost"
+                kind="tertiary"
+                size="sm"
                 renderIcon={ArrowRight}
                 className="home-page__view-all-button"
               >
@@ -209,24 +235,21 @@ function HomePage() {
 
           <div className="home-page__content">
             <div className="home-page__content-header">
-              <h3 className="home-page__content-title">Recommendations (12)</h3>
-              <button className="home-page__show-more">
-                <span>Show more</span>
-                <ChevronDown size={16} />
-              </button>
+              <h3 className="home-page__content-title">Recommendations (3)</h3>
+              <Button
+                kind="ghost"
+                size="sm"
+                renderIcon={ChevronDown}
+                className="home-page__show-more"
+              >
+                Show more
+              </Button>
             </div>
             <div className="home-page__cards-wrapper">
               <Grid narrow>
                 {recommendations.map((recommendation) => (
-                  <Column key={recommendation.id} sm={4} md={4} lg={{span: 5, offset: 0}}>
-                    <CapabilityCard
-                      {...recommendation}
-                      onClick={() => {
-                        if (recommendation.id === 10) {
-                          window.location.hash = '#optimization';
-                        }
-                      }}
-                    />
+                  <Column key={recommendation.id} sm={4} md={4} lg={5}>
+                    <CapabilityCard {...recommendation} />
                   </Column>
                 ))}
               </Grid>

@@ -7,39 +7,38 @@
   flex-direction: column;
   height: 100%;
   padding: 0;
+  position: relative;
 
   &__header {
     display: flex;
     flex-direction: column;
-    gap: $spacing-02;
+    gap: $spacing-03;
     padding: $spacing-05 $spacing-05 $spacing-02 $spacing-05;
   }
 
-  &__badge {
-    @include type-style('helper-text-01');
-    display: inline-flex;
-    align-items: center;
-    padding: 0 $spacing-03;
-    padding-bottom: $spacing-01;
-    border-radius: 9px;
-    width: fit-content;
-
-    &--java {
-      background-color: #d0e2ff;
-      color: #0043ce;
-    }
-
-    &--runtime {
-      background-color: #d9fbfb;
-      color: #005d5d;
-    }
-  }
-
   &__title {
-    @include type-style('label-02');
-    font-weight: 600;
+    @include type-style('heading-compact-01');
     color: $text-primary;
     margin: 0;
+    padding-right: $spacing-07; // Space for action button
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-02;
+  }
+
+  &__tag {
+    // Carbon Tag component handles its own styling
+  }
+
+  &__action-button {
+    position: absolute;
+    top: $spacing-05;
+    right: $spacing-05;
+    min-height: 32px;
+    padding: 0;
   }
 
   &__content {
@@ -51,7 +50,7 @@
   }
 
   &__description {
-    @include type-style('helper-text-01');
+    @include type-style('label-01');
     color: $text-primary;
     margin: 0;
     flex: 1;
@@ -64,7 +63,7 @@
   }
 
   &__timestamp {
-    @include type-style('helper-text-01');
+    @include type-style('label-01');
     color: $text-secondary;
   }
 
