@@ -99,14 +99,17 @@ const recommendations = [
     showActionButton: false
   },
   {
-    id: 9,
-    title: 'Optimisation',
-    description: '3 optimisation alerts ready to explore.',
+    id: 10,
+    title: 'Traffic Anomaly Detection (Baseline Deviation)',
+    description: 'Uses historical traffic patterns to flag unusual behaviour early.',
     timestamp: 'Since 3 h ago',
     tags: [
       { label: 'Medium priority', type: 'gray' }
     ],
-    showActionButton: false
+    showActionButton: false,
+    onClick: () => {
+      window.location.hash = '#optimization';
+    }
   }
 ];
 
