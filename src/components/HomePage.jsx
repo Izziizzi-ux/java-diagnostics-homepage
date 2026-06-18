@@ -84,7 +84,8 @@ const recommendations = [
     description: '3 optimisation alerts ready to explore.',
     timestamp: 'Since 3 h ago',
     tags: [
-      { label: 'High priority', type: 'red' }
+      { label: 'High priority', type: 'red' },
+      { label: 'JVM', type: 'teal' }
     ],
     showActionButton: false
   },
@@ -94,7 +95,8 @@ const recommendations = [
     description: '3 optimisation alerts ready to explore.',
     timestamp: 'Since 3 h ago',
     tags: [
-      { label: 'Medium priority', type: 'gray' }
+      { label: 'Medium priority', type: 'gray' },
+      { label: 'App server', type: 'purple' }
     ],
     showActionButton: false
   },
@@ -104,7 +106,8 @@ const recommendations = [
     description: 'Uses historical traffic patterns to flag unusual behaviour early.',
     timestamp: 'Since 3 h ago',
     tags: [
-      { label: 'Medium priority', type: 'gray' }
+      { label: 'Medium priority', type: 'gray' },
+      { label: 'App server', type: 'purple' }
     ],
     showActionButton: false,
     onClick: () => {
