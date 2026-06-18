@@ -8,13 +8,13 @@
   height: 100%;
   padding: 0;
   position: relative;
+  background-color: #ffffff;
 
   &__header {
     display: flex;
     flex-direction: column;
     gap: $spacing-03;
     padding: $spacing-05 $spacing-05 $spacing-02 $spacing-05;
-    background-color: #ffffff;
   }
 
   &__title {
